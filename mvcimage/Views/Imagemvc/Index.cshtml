@@ -1,0 +1,40 @@
+﻿@model IEnumerable<mvcimage.Models.Mvcimagedb>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+           @Html.DisplayNameFor(model => model.imgpath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+       
+        <td>
+            <img src=" @Html.DisplayFor(modelItem => item.imgpath)" width="90px" height="60px" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.imgid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.imgid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.imgid })
+        </td>
+    </tr>
+}
+
+</table>
